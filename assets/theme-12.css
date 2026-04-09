@@ -1,104 +1,103 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
-  background: linear-gradient(135deg, #f6f2ff, #efe9ff);
-  color: #2d1b4e;
+  background: radial-gradient(circle at top, #1a0f2e, #0f061a);
+  color: #e9e4ff;
   line-height: 1.6;
   font-family: "Urbanist", sans-serif;
 }
 
 /* HEADING */
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-family: "Instrument Serif", serif;
   font-weight: normal;
 }
 
 h1 {
-  color: #5a35c5;
+  color: #c6b8ff;
+  text-shadow: 0 0 10px #7b4bff;
 }
 
-/* PRIMARY (UNGU UTAMA - LEBIH HIDUP) */
+/* PRIMARY BUTTON (BLINK + GLOW) */
 .bg-primary {
-  background: linear-gradient(135deg, #7b4bff, #9f7bff);
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(123, 75, 255, 0.3);
+  background: linear-gradient(135deg, #7b4bff, #a98bff);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(123, 75, 255, 0.6);
+  animation: glowBlink 2s infinite;
 }
 
+/* HOVER */
 .hover\:bg-primary:hover {
-  background: linear-gradient(135deg, #6936f5, #8b66ff);
+  background: linear-gradient(135deg, #8c5bff, #b69cff);
 }
 
-.hover\:text-primary:hover {
-  color: #7b4bff;
-}
-
-/* SECONDARY (UNGU SOFT BACKGROUND) */
+/* SECONDARY */
 .bg-secondary {
-  background: #f1edff;
-  color: #2d1b4e;
-}
-
-.hover\:bg-secondary:hover {
-  background: #e4dcff;
-}
-
-.border-secondary {
-  border-color: #ddd3ff;
+  background: rgba(123, 75, 255, 0.1);
+  color: #e9e4ff;
+  border: 1px solid rgba(123, 75, 255, 0.3);
 }
 
 /* CARD */
 .bg-card {
-  background: #ffffff;
-  color: #2d1b4e;
-  box-shadow: 0 10px 25px rgba(123, 75, 255, 0.15);
-  border: 1px solid #eee9ff;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  color: #e9e4ff;
+  border: 1px solid rgba(123, 75, 255, 0.2);
+  box-shadow: 0 0 20px rgba(123, 75, 255, 0.2);
   transition: 0.3s;
 }
 
 .bg-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(123, 75, 255, 0.25);
+  box-shadow: 0 0 30px rgba(123, 75, 255, 0.5);
 }
 
 /* NAVBAR */
 .navbar {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  color: #2d1b4e;
-  box-shadow: 0 5px 15px rgba(123, 75, 255, 0.1);
+  background: rgba(15, 6, 26, 0.7);
+  backdrop-filter: blur(10px);
+  color: #e9e4ff;
+  border-bottom: 1px solid rgba(123, 75, 255, 0.2);
 }
 
-/* GRADIENT TEXT */
+/* TEXT GRADIENT */
 .text-gradient {
-  background-image: linear-gradient(45deg, #7b4bff, #c6b8ff);
+  background-image: linear-gradient(45deg, #7b4bff, #d5cfff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* SHAPE */
-.rounded {
-  border-radius: 0rem 0.8rem;
+/* BLINK ANIMATION */
+@keyframes glowBlink {
+  0% {
+    box-shadow: 0 0 10px #7b4bff, 0 0 20px #7b4bff;
+  }
+  50% {
+    box-shadow: 0 0 20px #a98bff, 0 0 40px #a98bff;
+  }
+  100% {
+    box-shadow: 0 0 10px #7b4bff, 0 0 20px #7b4bff;
+  }
+}
+
+/* OPTIONAL TEXT BLINK */
+.blink-text {
+  animation: textBlink 1.5s infinite;
+}
+
+@keyframes textBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
 
 /* BUTTON */
 .btn {
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: 0.3s;
 }
 
-/* HOVER EFFECT GLOBAL */
-a, button {
-  transition: all 0.3s ease;
-}
-
-a:hover, button:hover {
-  transform: translateY(-2px);
-}
-
-/* OPTIONAL GLOW EFFECT */
-.glow {
-  box-shadow: 0 0 15px rgba(123, 75, 255, 0.4);
+/* ROUND */
+.rounded {
+  border-radius: 0rem 0.8rem;
 }
