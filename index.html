@@ -839,40 +839,43 @@ function renderThemes(data) {
     return;
   }
 
-  // 🔥 GROUP BY CATEGORY
+  // 🔥 GROUP BY CATEGORY NAME
   const grouped = {};
 
   data.forEach(theme => {
-    const catId = theme.category_id || "lainnya";
     const catName = theme.category_name || "Kategori Lain";
 
-    if (!grouped[catId]) {
-      grouped[catId] = {
-        name: catName,
-        items: []
-      };
+    // ❌ skip SYUKURAN
+    if (catName.toLowerCase().includes("syukuran")) return;
+
+    if (!grouped[catName]) {
+      grouped[catName] = [];
     }
 
-    grouped[catId].items.push(theme);
+    grouped[catName].push(theme);
   });
 
-  // 🔥 RENDER PER KATEGORI
-  Object.values(grouped).forEach(group => {
+  // 🔥 LOOP PER KATEGORI
+  Object.keys(grouped).forEach(category => {
 
     // ===== BAR KATEGORI =====
     const title = document.createElement("div");
     title.className = "col-span-full mt-10 mb-4";
 
     title.innerHTML = `
-      <div class="bg-primary text-white px-4 py-2 rounded-lg shadow font-bold text-lg">
-        ${group.name}
+      <div class="bg-gradient-to-r from-purple-600 to-purple-400 text-white px-5 py-3 rounded-xl shadow-lg font-bold text-lg">
+        ${category}
       </div>
     `;
 
     container.appendChild(title);
 
-    // ===== GRID THEMES =====
-    group.items.forEach(theme => {
+    // ===== WRAPPER GRID =====
+    const grid = document.createElement("div");
+    grid.className = "col-span-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4";
+
+    // ===== ISI THEMES =====
+    grouped[category].forEach(theme => {
       const card = document.createElement("div");
 
       card.innerHTML =
@@ -889,9 +892,10 @@ function renderThemes(data) {
           '</div>' +
         '</div>';
 
-      container.appendChild(card);
+      grid.appendChild(card);
     });
 
+    container.appendChild(grid);
   });
 }
 // ================= SEARCH =================
