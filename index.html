@@ -915,6 +915,10 @@ async function loadCategories() {
     container.appendChild(allBtn);
 
     categories.forEach(function(cat) {
+
+  // ❌ HAPUS KATEGORI SYUKURAN (atau kosong)
+  if (cat.name.toLowerCase().includes("syukuran")) return;
+
       const btn = document.createElement("button");
       btn.textContent = cat.name;
       btn.className = "btn m-1";
