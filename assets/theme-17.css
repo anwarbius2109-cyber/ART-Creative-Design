@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:wght@400;500;600;700&display=swap");
+
+/* === ROOT COLOR SYSTEM (DARI LOGO) === */
+:root {
+  --primary-blue: #1da1f2;
+  --primary-cyan: #00c6ff;
+  --primary-purple: #a100ff;
+  --primary-magenta: #ff00c8;
+  --primary-yellow: #ffcc00;
+  --primary-orange: #ff8c00;
+
+  --dark: #0a0f2c;
+  --text-main: #1a1a2e;
+  --text-light: #ffffff;
+
+  --bg-main: #ffffff;
+  --bg-soft: #f6f8fc;
+}
+
+/* === BASE === */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  font-family: "Inter", sans-serif;
+}
+
+/* === HEADING === */
+h1, h2, h3 {
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  color: var(--dark);
+}
+
+/* === PRIMARY (BIRU-CYAN) === */
+.bg-primary {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-cyan));
+  color: var(--text-light);
+}
+
+.hover\:bg-primary:hover {
+  background: linear-gradient(135deg, #0f8fe0, #00aee6);
+}
+
+/* === SECONDARY (KUNING-ORANGE SOFT) === */
+.bg-secondary {
+  background: linear-gradient(135deg, #fff3cc, #ffe0a3);
+  color: var(--dark);
+}
+
+.hover\:bg-secondary:hover {
+  background: #ffe8b3;
+}
+
+/* === CARD === */
+.bg-card {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* === NAVBAR (ELEGAN SOFT GRADIENT) === */
+.navbar {
+  background: linear-gradient(90deg, #ffffff, #f3f6ff);
+  color: var(--dark);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* === TEXT GRADIENT (LOGO STYLE) === */
+.text-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--primary-purple),
+    var(--primary-magenta),
+    var(--primary-blue),
+    var(--primary-cyan),
+    var(--primary-orange)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === BORDER === */
+.border-secondary {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* === BUTTON === */
+.btn {
+  text-transform: uppercase;
+  font-family: "Kanit", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* BUTTON UTAMA */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-magenta), var(--primary-cyan));
+}
+
+/* === RADIUS === */
+.rounded {
+  border-radius: 0.5rem;
+}
